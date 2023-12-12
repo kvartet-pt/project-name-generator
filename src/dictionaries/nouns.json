@@ -1,4 +1,4 @@
-module.exports = [
+[
   "account",
   "achiever",
   "acoustics",
@@ -850,4 +850,4 @@ module.exports = [
   "zinc",
   "zipper",
   "zoo"
-];
+]

@@ -1,18 +1,20 @@
 {
-  "name": "project-name-generator",
-  "version": "2.1.9",
+  "name": "serve-name-gen",
+  "version": "1.0.0",
   "description": "Generate a random, unique, heroku-like name for your app/project/server etc. e.g. \"resonant-silence\"",
   "types": "src/generator.d.ts",
-  "main": "src/generator.js",
+  "main": "src/generator.ts",
   "scripts": {
-    "test": "mocha spec/**/*.spec.js"
+    "test": "bun test",
+    "generate": "bun run src/generator.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aceakash/project-name-generator.git"
+    "url": "git://github.com/kvartet-pt/server-name-gen.git"
   },
   "keywords": [
     "heroku",
+    "gcp",
     "project",
     "server",
     "app",
@@ -23,17 +25,15 @@
     "generator",
     "generater"
   ],
-  "author": "Akash Kurdekar",
+  "author": "Nikola Susa",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^8.1.3",
-    "must": "^0.13.4"
+    "bun-types": "^1.0.17"
   },
   "dependencies": {
-    "commander": "^6.1.0",
-    "lodash": "^4.17.20"
+    "commander": "^6.1.0"
   },
   "bin": {
-    "project-name-generator": "src/generator-bin.js"
+    "server-name-gen": "src/cli.ts"
   }
 }
