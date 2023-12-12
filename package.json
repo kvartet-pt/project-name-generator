@@ -2,11 +2,10 @@
   "name": "serve-name-gen",
   "version": "1.0.0",
   "description": "Generate a random, unique, heroku-like name for your app/project/server etc. e.g. \"resonant-silence\"",
-  "types": "src/generator.d.ts",
   "main": "src/generator.ts",
   "scripts": {
     "test": "bun test",
-    "generate": "bun run src/generator.ts"
+    "build": "bun build"
   },
   "repository": {
     "type": "git",

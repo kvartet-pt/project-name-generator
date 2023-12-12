@@ -1,15 +1,23 @@
-# Project Name Generator
+# Server Name Gen
 
 Generate quirky names like *spiffy-waterfall*, *sassy-bread*, *mature-dew-8239* to use wherever you need a random but memorable name.
 
 Useful for object names, temp folders, passwords, project names, unique ids etc
 
-## Install
-`npm install project-name-generator --save`
+## Install as CLI
+*npm*
+
+`npm install server-name-gen --save`
+
+*bun*
+
+`bun add server-name-gen`
+
+
 
 ## Quick Start
-```javascript
-var generate = require('project-name-generator');
+```typescript
+import generate from 'server-name-gen';
 
 generate().dashed; // 'uptight-guitar'
 
@@ -28,8 +36,8 @@ generate({ words: 2, alliterative: true }).spaced; // 'elegant experience'
 ```
 
 ## Quickstart CLI
-This package contains a cli script.  You can pull in the package globally using npm
-`npm install -g project-name-generator`
+This package contains a simple cli. You can pull in the package globally using npm
+`npm install -g server-name-gen`
 
 Call from your command line
 ```
@@ -41,9 +49,9 @@ $ project-name-generator
 
 For CLI options 
 ```
-project-name-generator -h
+server-name-gen -h
 
-Usage: project-name-generator [options]
+Usage: server-name-gen [options]
 
 
 Options:
@@ -60,7 +68,7 @@ Options:
 The module returns a single function, `generate(options)`
 
 Calling `generate()` with no arguments will return an object:
-```javascript
+```typescript
 {
     raw: ['whispering', 'valley'],
     dashed: 'whispering-valley',
@@ -75,7 +83,7 @@ The `options` argument object can have properties
 * **alliterative** (boolean) - Whether to output words beginning with the same letter or not. Defaults to **false**.
 
 `generate({ words: 3 })` will return:
-```javascript
+```typescript
 {
     raw: ['harmonious', 'endurable', 'substance'],
     dashed: 'harmonious-endurable-substance',
@@ -84,7 +92,7 @@ The `options` argument object can have properties
 ```
 
 `generate({ words: 5, number: true })` will return:
-```javascript
+```typescript
 {
   raw: [ 'exciting', 'cooperative', 'legal', 'lackadaisical', 'blood', 4099 ],
   dashed: 'exciting-cooperative-legal-lackadaisical-blood-4099',
@@ -93,7 +101,7 @@ The `options` argument object can have properties
 ```
 
 `generate({ words: 2, number: false, alliterative: true })` will return:
-```javascript
+```typescript
 {
   raw: [ 'elegant', 'experience' ],
   dashed: 'elegant-experience',
@@ -104,7 +112,13 @@ The `options` argument object can have properties
 ## Tests
 To run tests locally:
 ```
-npm install
+bun install
 
-npm test
+bun test
 ```
+
+## Disclaimer
+
+The original author of this package has discontinued support.
+
+This fork is to keep the package alive and up to date and provide much needed updates.
