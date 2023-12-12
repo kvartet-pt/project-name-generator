@@ -1,6 +1,3 @@
-# ⚰️ ⚰️  DEPRECATED ⚰️ ⚰️ 
-This project is no longer being supported.
-
 # Project Name Generator
 
 Generate quirky names like *spiffy-waterfall*, *sassy-bread*, *mature-dew-8239* to use wherever you need a random but memorable name.
@@ -111,8 +108,3 @@ npm install
 
 npm test
 ```
-
-The library has been tested with Node.js 12.18.4
-
-## Status
-![How up-to-date are dependencies?](https://david-dm.org/aceakash/project-name-generator.svg)
