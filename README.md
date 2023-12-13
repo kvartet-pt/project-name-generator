@@ -4,7 +4,7 @@ Generate quirky names like *spiffy-waterfall*, *sassy-bread*, *mature-dew-8239* 
 
 Useful for object names, temp folders, passwords, project names, unique ids etc
 
-## Install as CLI
+## Install
 *npm*
 
 `npm install server-name-gen --save`
@@ -33,6 +33,10 @@ generate({ words: 4, number: true }).dashed; // 'breakable-judicious-luxuriant-t
 
 generate({ words: 2, alliterative: true }).spaced; // 'elegant experience'
 
+generate({ firstLetter: 'a' }).spaced; // 'average fox'
+
+generate({ firstLetter: 'a', alliterative: true }).spaced; // 'amazing apple'
+
 ```
 
 ## Quickstart CLI
@@ -56,12 +60,12 @@ Usage: server-name-gen [options]
 
 Options:
 
-  -V, --version          output the version number
-  -w, --words [num]      number of words [2]
-  -n, --numbers          use numbers
-  -a, --alliterative     use alliterative
-  -o, --output [output]  output type [raw|dashed|spaced]
-  -h, --help             output usage information
+  -w, --words [num]         number of words [2]
+  -n, --numbers             suffix with a random number
+  -a, --alliterative        use alliterative
+  -f, --format [format]     output format type [raw|dashed|spaced]
+  -l, --first-letter [s]    first letter of the first word [single letter]
+  -h, --help                output usage information
 ```
 
 ## API
