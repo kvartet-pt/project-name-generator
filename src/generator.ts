@@ -3,14 +3,20 @@ import adjectives from './dictionaries/adjectives.json';
 import {filter, merge, random, sample, times} from './utils';
 
 
-
 export interface Options {
   number: boolean;
   words: number;
   alliterative: boolean;
+  firstLetter?: string;
 }
 
-function generate(options?: Partial<Options>) {
+interface Result {
+    raw: (string | number)[];
+    dashed: string;
+    spaced: string;
+}
+
+function generate(options?: Partial<Options>) :Result {
   const defaults: Options = {
     number: false,
     words: 2,
@@ -36,9 +42,14 @@ function getRawProjName(options: Options) {
         raw.push(adjectiveSample);
       }
     } else {
-      const adjective = sample(adjectives);
-      if (adjective !== undefined) {
-        raw.push(adjective.toLowerCase());
+      let adjectiveSample;
+      if(options.firstLetter) {
+        adjectiveSample = sample(filter(adjectives, function(elm) { return elm.substring(0, 1).toLowerCase() === options.firstLetter; }));
+      } else {
+        adjectiveSample = sample(adjectives);
+      }
+      if (adjectiveSample !== undefined) {
+        raw.push(adjectiveSample.toLowerCase());
       }
     }
   });

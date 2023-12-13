@@ -1,28 +1,82 @@
-#!/usr/bin/env node
+import generate, {Options} from "./generator";
 
-import generate, {Options} from './generator';
-import {Command} from "commander";
+const args = process.argv.slice(2); // Remove the first two elements
 
-const program = new Command();
+let options: Options = {
+    words: 2,
+    number: false,
+    alliterative: false
+};
 
-program
-    .version('1.0.0')
-    .option('-w, --words [num]', 'number of words [2]', "2")
-    .option('-n, --numbers', 'use numbers')
-    .option('-a, --alliterative', 'use alliterative')
-    .option('-o, --output [output]', 'output type [raw|dashed|spaced]', /^(raw|dashed|spaced)$/i)
-    .parse(process.argv);
+args.forEach((arg, index) => {
+    switch (arg) {
+        case '-w':
+        case '--words':
+            options.words = parseInt(args[index + 1]);
+            break;
+        case '-n':
+        case '--numbers':
+            options.number = true;
+            break;
+        case '-a':
+        case '--alliterative':
+            options.alliterative = true;
+            break;
+        case '-l':
+        case '--first-letter':
+            options.firstLetter = args[index + 1];
+            break;
+    }
+});
+
+if (args.includes('-h') || args.includes('--help')) {
+    help();
+} else  {
+    const srvName = generate(options);
+    if (args.includes('-f') || args.includes('--format')) {
+        const outputType = args[args.indexOf('-f') !== -1 ? args.indexOf('-o') : args.indexOf('--format') + 1];
+        switch (outputType) {
+            case 'dashed':
+                console.log(srvName.dashed);
+                break;
+            case 'raw':
+                console.log(srvName.raw);
+                break;
+            case 'spaced':
+                console.log(srvName.spaced);
+                break;
+            default:
+                console.log(srvName);
+                break;
+        }
+    } else {
+        console.log(srvName);
+    }
+}
+
+function help() {
+    const helpText = `
+   _____            _   __                     ______         
+  / ___/______   __/ | / /___ _____ ___  ___  / ____/__  ____ 
+  \\__ \\/ ___/ | / /  |/ / __ \`/ __ \`__ \\/ _ \\/ / __/ _ \\/ __ \\
+ ___/ / /   | |/ / /|  / /_/ / / / / / /  __/ /_/ /  __/ / / /
+/____/_/    |___/_/ |_/\\__,_/_/ /_/ /_/\\___/\\____/\\___/_/ /_/ 
+                                                              
 
 
-let options: Options = {words: program.words, number: program.numbers, alliterative: program.alliterative};
-let projectName = generate(options);
+Usage: server-name-gen [options]
 
-if (program.output == "dashed"){
-    console.log(projectName.dashed);
-} else if (program.output == "raw") {
-    console.log(projectName.raw);
-} else if (program.output == "spaced") {
-    console.log(projectName.spaced);
-} else {
-    console.log(projectName);
+
+Options:
+
+  -w, --words [num]         number of words [2]
+  -n, --numbers             suffix with a random number
+  -a, --alliterative        use alliterative
+  -f, --format [format]     output format type [raw|dashed|spaced]
+  -l, --first-letter [s]    first letter of the first word [single letter]
+  -h, --help                output usage information
+`
+
+    console.log(helpText);
+
 }

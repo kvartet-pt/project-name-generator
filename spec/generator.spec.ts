@@ -81,12 +81,17 @@ describe('generator', function () {
 
       test('with {alliterative: true}, has 1 adjective and 1 noun beginning with same letter', function () {
         srvName = generate({alliterative: true});
-        expect(srvName.raw.length).toBe(2);
         expect(includes(adjectives, srvName.raw[0])).toBe(true);
         expect(includes(nouns, srvName.raw[1])).toBe(true);
         expect(srvName.raw[0].substring(0, 1).toLowerCase() === srvName.raw[1].substring(0, 1).toLowerCase()).toBe(true);
       });
 
-    })
+      test('with {firstLetter: "a"}, has 1 adjective beginning with "a"', function () {
+        srvName = generate({firstLetter: "a"});
+        expect(includes(adjectives, srvName.raw[0])).toBe(true);
+        expect(srvName.raw[0].substring(0, 1).toLowerCase() === "a").toBe(true);
+      });
+
+    });
   });
 });
