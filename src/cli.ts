@@ -26,6 +26,10 @@ args.forEach((arg, index) => {
         case '--first-letter':
             options.firstLetter = args[index + 1];
             break;
+        case '-b':
+        case '--blocklist':
+            options.blocklist = args[index + 1].split(',');
+            break;
     }
 });
 
@@ -74,6 +78,7 @@ Options:
   -a, --alliterative        use alliterative
   -f, --format [format]     output format type [raw|dashed|spaced]
   -l, --first-letter [s]    first letter of the first word [single letter]
+  -b, --blocklist [words]   comma separated list of words to exclude
   -h, --help                output usage information
 `
 

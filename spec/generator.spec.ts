@@ -1,7 +1,7 @@
 import {includes} from '../src/utils';
 import nouns from '../src/dictionaries/nouns.json';
 import adjectives from '../src/dictionaries/adjectives.json';
-import generate from '../src/generator';
+import generate, {blocklistFilter} from '../src/generator';
 import {test, expect, describe, beforeEach} from "bun:test";
 describe('generator', function () {
   test('has a generate function', function () {
@@ -90,6 +90,15 @@ describe('generator', function () {
         srvName = generate({firstLetter: "a"});
         expect(includes(adjectives, srvName.raw[0])).toBe(true);
         expect(srvName.raw[0].substring(0, 1).toLowerCase() === "a").toBe(true);
+        expect(srvName.raw[1].substring(0, 1).toLowerCase() === "a").toBe(false);
+      });
+
+      test("with {blocklist: ['abandoned', 'account']}, doesn't include 'abandoned' nor 'account'", function () {
+        const blocklist = ['abandoned', 'account'];
+        const adj = blocklistFilter(blocklist, adjectives);
+        const nou = blocklistFilter(blocklist, nouns);
+        expect(includes(adj, 'abandoned')).toBe(false);
+        expect(includes(nou, 'account')).toBe(false);
       });
 
     });

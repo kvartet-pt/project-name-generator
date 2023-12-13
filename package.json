@@ -2,10 +2,10 @@
   "name": "serve-name-gen",
   "version": "1.0.0",
   "description": "Generate a random, ~ unique, heroku/gcp-like name for your project, server etc. e.g. \"fragile-sack\"",
-  "main": "src/generator.ts",
+  "main": "dist/generator.js",
   "scripts": {
     "test": "bun test",
-    "build": "bun build src/generator.ts src/cli.ts --outdir dir"
+    "build": "bun run build.js"
   },
   "repository": {
     "type": "git",
@@ -20,16 +20,19 @@
     "name",
     "generate",
     "unique",
+    "rnd",
     "random",
+    "gen",
     "generator",
     "generater"
   ],
   "author": "Nikola Susa",
   "license": "ISC",
   "devDependencies": {
+    "bun-plugin-dts": "^0.2.1",
     "bun-types": "^1.0.17"
   },
   "bin": {
-    "server-name-gen": "dir/cli.js"
+    "server-name-gen": "dist/cli.js"
   }
 }
