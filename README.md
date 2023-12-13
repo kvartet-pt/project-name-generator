@@ -2,9 +2,31 @@
 
 Generate quirky names like *hilarious-curve*, *daily-sunny-stone*, *sparkling-edge-108* to use wherever you need a random but memorable name.
 
-Useful for object names, temp folders, passwords, project names, unique ids etc
+Useful for object names, temp folders, passwords, project names, server names, unique ids etc..
+
+```
+       ╭──────────╮                  ╭────────────╮
+       │  dawdk  ░│                  │  wild-pot  │
+       ╰──────────╯                  ╰────────────╯
+╭──────────────────────╮        ╭──────────────────────╮
+│ ◎ ○ ○ ░░░░░░░░░░░░░░░│        │ ◎ ○ ○ ░░░░░░░░░░░░░░░│
+├──────────────────────┤        ├──────────────────────┤
+│                      │        │                      │
+│                      │        │      ◠   ◡    ◠      │
+│                      │   VS   │                      │
+│                      │        │                      │
+│      ○       ○       │        │                      │
+│          ◠           │        │                      │
+└──────────────────────┘        └──────────────────────┘
+
+```
+*true-to-life representation representation of your server feels*
+
+---
 
 *This is TypeScript rewrite of now deprecated [project-name-generator](https://github.com/aceakash/project-name-generator) library, with some improvements (no external lib dependencies, additional options)*
+
+---
 
 ## Install
 *npm*
