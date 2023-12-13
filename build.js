@@ -5,9 +5,4 @@ await Bun.build({
     plugins: [
         dts()
     ],
-    minify: {
-        whitespace: true,
-        identifiers: true,
-        syntax: true,
-    },
 })

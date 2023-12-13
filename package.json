@@ -1,18 +1,15 @@
 {
   "name": "server-name-gen",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Generate a random, ~ unique, heroku/gcp-like name for your project, server etc. e.g. \"fragile-sack\"",
   "main": "dist/generator.js",
   "scripts": {
     "test": "bun test",
     "build": "bun run build.js"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kvartet-pt/server-name-gen.git"
+    "url": "https://github.com/kvartet-pt/server-name-gen.git"
   },
   "keywords": [
     "heroku",

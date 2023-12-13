@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import generate, {Options} from "./generator";
 
 const args = process.argv.slice(2); // Remove the first two elements
